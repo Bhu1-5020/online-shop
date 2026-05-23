@@ -1,6 +1,5 @@
 
-function openCart(event) {
-  event.preventDefault(); 
+function openCart() {
   document.getElementById("cartPanel")
     .classList.remove("translate-x-full");
 

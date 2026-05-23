@@ -37,10 +37,9 @@
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         <?php require "products.php" ?>
-       
         <?php foreach ($products as $p) : ?>
        <div class="group">
-         <form action="warenkorb/cartProcess.php" method="post" onsubmit="openCart(event)">
+         <form action="warenkorb/cartProcess.php" method="post" onsubmit="openCart()">
           <input type="hidden" name="id" value="<?= $p['id'] ?>">
         <img src= "<?= $p["bild"]; ?>" alt="<?= $p["name"] ?>" class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]" />
         <h3 class="mt-4 text-md font-medium text-gray-900"><?= $p["name"] ?></h3>

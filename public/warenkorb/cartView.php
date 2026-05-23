@@ -25,10 +25,15 @@
                 <button class="bg-gray-300 px-2 rounded">+</button>
                </form>
             </div>
-          </div>
+          </div>          
    <?php endif; ?>
   <?php endforeach; ?>
  <?php endforeach; ?>
+  <div class="bg-green-500 px-5 py-2 rounded text-center">    
+   <a href="kasse/formula.php" class="text-white font-medium block">
+    Zur Kasse gehen
+  </a>
+</div>
 <?php else: ?>
     <p class="text-gray-500">Cart is empty</p>
 <?php endif; ?>

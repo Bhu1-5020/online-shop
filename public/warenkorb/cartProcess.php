@@ -14,7 +14,7 @@ if (isset($_POST['id'])) {
         $_SESSION['cart'][$product_id] = 1;
     }
 }
-  // Cart count 
+   // Cart count 
   
 $total = 0;
 foreach ($_SESSION['cart'] as $qty) {
@@ -22,8 +22,6 @@ foreach ($_SESSION['cart'] as $qty) {
 }
 
 $_SESSION['total'] = $total;
-
-    
 
   header("Location: /index.php");
   exit();
