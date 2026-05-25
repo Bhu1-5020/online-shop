@@ -1,2 +1,3 @@
 # online-shop
-Online Shop Project - Exercise : PHP product catalog implementation with dynamic array rendering. Part of SED501 Web Development (SS 2026).
+
+Online shop exercise for SED501 Web Development course at FernFH, Summer Semester 2026.

@@ -20,17 +20,26 @@ require "service.php";
 
   <!--  LEFT SIDE: FORM -->
   <div class="bg-white p-6 rounded shadow">
-  <form class="space-y-4">
-
+  <form action="../datenprozess/validation.php" method="post" class="space-y-4">
+     <!--  Error message -->
+      <?php if (!empty($_SESSION['error'])): ?>
+          <p class="text-xs text-red-500 mt-1"> Fehlermeldung :
+        <?php
+         if (is_array($_SESSION['error'])) {
+          echo implode('<br>', $_SESSION['error']);
+          } else {
+          echo $_SESSION['error']; } ?> </p>
+          <?php unset($_SESSION['error']); ?>
+        <?php endif; ?>
     <!--  Name -->
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label class="block text-sm mb-1">Vorname</label>
-        <input type="text" placeholder="Vorname" class="w-full border p-2 rounded">
-      </div>
+        <input type="text" placeholder="Vorname" name="firstName"  class="w-full border p-2 rounded">
+        </div>
       <div>
         <label class="block text-sm mb-1">Nachname</label>
-        <input type="text" placeholder="Nachname" class="w-full border p-2 rounded">
+        <input type="text" placeholder="Nachname" name="lastName" class="w-full border p-2 rounded">
       </div>
     </div>
 
@@ -38,28 +47,28 @@ require "service.php";
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label class="block text-sm mb-1">Email</label>
-        <input type="email" placeholder="Email" class="w-full border p-2 rounded">
+        <input type="email" placeholder="Email" name="email" class="w-full border p-2 rounded">
       </div>
       <div>
         <label class="block text-sm mb-1">Telefon</label>
-        <input type="text" placeholder="Telefon" class="w-full border p-2 rounded">
+        <input type="text" placeholder="Telefon" name="phoneNumber" class="w-full border p-2 rounded">
       </div>
     </div>
 
     <!--  Address -->
     <div>
       <label class="block text-sm mb-1">Straße und Hausnummer</label>
-      <input type="text" placeholder="Adresse" class="w-full border p-2 rounded">
+      <input type="text" placeholder="Adresse"  name="addresses" class="w-full border p-2 rounded">
     </div>
 
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label class="block text-sm mb-1">Postleitzahl</label>
-        <input type="text" placeholder="PLZ" class="w-full border p-2 rounded">
+        <input type="number" placeholder="PLZ" name="plz" class="w-full border p-2 rounded">
       </div>
       <div>
         <label class="block text-sm mb-1">Ort</label>
-        <input type="text" placeholder="Ort" class="w-full border p-2 rounded">
+        <input type="text" placeholder="Ort" name="state" class="w-full border p-2 rounded">
       </div>
     </div>
 
@@ -112,13 +121,12 @@ require "service.php";
        <?php $subtotal = $p['preis'] * $qty; ?>
         <div class="border p-3 rounded mb-3">
           <strong><?= $p['name'] ?></strong><br>
-          €<?= $p['preis'] ?> × <?= $qty ?> = 
+            Artikelnummer : <?= $p['artikelnummer'] ?> €<?= $p['preis'] ?> Menge: <?= $qty ?> = 
           <span class="font-bold">€<?= $subtotal ?></span>
-          
-          <form action="formula.php" method="post">
+           <form action="formula.php" method="post">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="action" value="remove">
-            <button type="submit" class="remove-btn">Remove</button>
+            <button type="submit" class="remove-btn">Lösen</button>
           </form>
           
         </div>

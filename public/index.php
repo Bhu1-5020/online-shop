@@ -39,14 +39,14 @@
         <?php require "products.php" ?>
         <?php foreach ($products as $p) : ?>
        <div class="group">
-         <form action="warenkorb/cartProcess.php" method="post" onsubmit="openCart()">
+         <form action="warenkorb/cartProcess.php" method="post" >
           <input type="hidden" name="id" value="<?= $p['id'] ?>">
         <img src= "<?= $p["bild"]; ?>" alt="<?= $p["name"] ?>" class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]" />
         <h3 class="mt-4 text-md font-medium text-gray-900"><?= $p["name"] ?></h3>
         <p class="mt-1 text-lg font-medium text-gray-800"> € <?= $p["preis"] ?></p>
         <p class="mt-1 text-sm  text-gray-500"> Artiklenummer : <?= $p["artikelnummer"] ?></p>
         <p class="mt-1 text-sm  text-gray-500"> In lager : <?= $p["lagerbestand"] ?></p>
-       <button  type="submit" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">In den Warenkorb</button>
+       <button  type="submit" onsubmit="showToast()" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">In den Warenkorb</button>
       </form>
         </div>
       <?php endforeach ?>
@@ -63,6 +63,6 @@
         <a href="">Widerrufsbelehrung</a>
     </div>
   </footer>
-  <script src="warenkorb/script.js"></script>
+<script src="warenkorb/script.js"></script>
 </body>
 </html>

@@ -15,3 +15,5 @@ function closeCart() {
   document.getElementById("cartOverlay")
     .classList.add("hidden");
 }
+
+
